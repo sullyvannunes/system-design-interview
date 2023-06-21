@@ -9,7 +9,7 @@ import (
 func (srv *Server) SetupRoutes() {
 	router := mux.NewRouter()
 
-	router.HandleFunc("/codes", srv.HandleGetCode).Methods(http.MethodGet)
+	router.HandleFunc("/{code}", srv.HandleFindLongURLByShortURL).Methods(http.MethodGet)
 	router.HandleFunc("/", srv.HandleGenerateURLEntity).Methods(http.MethodPost)
 
 	srv.Router = router
